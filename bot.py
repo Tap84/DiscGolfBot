@@ -49,14 +49,10 @@ async def search_disc_by_name(name, message):
     
     out_message = "```"
     cur = conn.cursor()
-    try:
-        
-        cur.execute(f''' SELECT * FROM prodigy_discs WHERE NAME=?''',(name,))
-        disc = cur.fetchall()[0]
-        out_message += f'''Name: {disc[0]}\nClass: {disc[1]}\nSpeed: {disc[2]}\nGlide: {disc[3]}\nTurn: {disc[4]}\nFade: {disc[5]}'''
-        out_message += "```"
-    except:
-        out_message = "Disc not found."
+    cur.execute(f''' SELECT * FROM prodigy_discs WHERE NAME=?''',(name,))
+    disc = cur.fetchall()[0]
+    out_message += f'''Name: {disc[0]}\nClass: {disc[1]}\nSpeed: {disc[2]}\nGlide: {disc[3]}\nTurn: {disc[4]}\nFade: {disc[5]}'''
+    out_message += "```"
     await message.channel.send(out_message)
 
 keyfile = open('key.txt')
