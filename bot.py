@@ -60,5 +60,5 @@ async def search_disc_by_name(name, message):
     await message.channel.send(out_message)
 
 keyfile = open('key.txt')
-key = keyfile.readline()         
+key = keyfile.readline().strip()         
 client.run(key)
