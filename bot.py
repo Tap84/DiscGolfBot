@@ -58,5 +58,7 @@ async def search_disc_by_name(name, message):
     except:
         out_message = "Disc not found."
     await message.channel.send(out_message)
-                       
-client.run('my key stop trying to ruin me')
+
+keyfile = open('key.txt')
+key = keyfile.readline()         
+client.run(key)

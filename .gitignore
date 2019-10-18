@@ -1,3 +1,5 @@
 .vscode/settings.json
 prodigybot.pem
 database.sqlite3
+key.txt
+ssh.txt
