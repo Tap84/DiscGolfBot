@@ -15,7 +15,8 @@ conn.execute(''' CREATE TABLE IF NOT EXISTS prodigy_discs(
                 FADE DECIMAL NOT NULL
                                             ) ''')
 """
-
+#                       Tyler               Dylan               Nick                Zane                Skaffen             Deck
+authorized_users = set(94953298645225472, 428298884998234112, 275626705475862530, 99017591317610496, 507227977394946048, 98607564257771520)
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
@@ -29,7 +30,7 @@ async def on_message(message):
         await search_disc_by_name(message.content[6:],message)
         
     
-    if message.content.startswith('.adddisc'):
+    if message.content.startswith('.adddisc') and message.author in authorized_users:
         discinfo = message.content[8:].split()
         await add_disc(discinfo, message)                                 
                                             
