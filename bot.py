@@ -18,9 +18,7 @@ conn.execute(''' CREATE TABLE IF NOT EXISTS prodigy_discs(
 #                       Tyler               Dylan               Nick                Zane                Skaffen             Deck
 authorized_users = set(94953298645225472, 428298884998234112, 275626705475862530, 99017591317610496, 507227977394946048, 98607564257771520)
 
-@client.event
-async def on_ready():
-    print('We have logged in as {0.user}'.format(client))
+
 
 @client.event
 async def on_message(message):
