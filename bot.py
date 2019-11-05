@@ -36,7 +36,6 @@ async def on_message(message):
     
     if message.content.startswith('.adddisc') and message.author.id in authorized_users:
         discinfo = message.content[8:].split()
-        discinfo[0] = discinfo[0].lower()
         try:
             await add_disc(discinfo, message)
         except:
@@ -46,8 +45,8 @@ async def on_message(message):
                                             
 async def add_disc(discinfo, message):
     conn.execute(''' INSERT INTO discs(NAME,MANUFACTURER,SPEED,GLIDE,TURN,FADE)
-                        VALUES(?,?,?,?,?,?)''',    (discinfo[0],
-                                                    discinfo[1],
+                        VALUES(?,?,?,?,?,?)''',    (discinfo[0].lower(),
+                                                    discinfo[1].lower(),
                                                     discinfo[2],
                                                     discinfo[3],
                                                     discinfo[4],
