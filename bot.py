@@ -36,11 +36,12 @@ async def on_message(message):
     
     if message.content.startswith('.adddisc') and message.author.id in authorized_users:
         discinfo = message.content[8:].split()
+        discinfo[0] = discinfo[0].lower()
         try:
             await add_disc(discinfo, message)
         except:
             await message.channel.send("Failed")
-    elif message.content.startswith('adddisc'):
+    elif message.content.startswith('.adddisc'):
         await message.channel.send("Unauthorized")                     
                                             
 async def add_disc(discinfo, message):
