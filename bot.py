@@ -37,7 +37,7 @@ async def on_message(message):
             await message.channel.send("Search Failed")
     
     if message.content.startswith('.adddisc') and message.author.id in authorized_users:
-        discinfo = message.content[8:].split()
+        discinfo = message.content[8:].split(',')
         try:
             await add_disc(discinfo, message)
         except:
