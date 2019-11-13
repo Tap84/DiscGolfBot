@@ -63,7 +63,7 @@ async def search_disc_by_name(name, message):
     cur = conn.cursor()
     cur.execute(f''' SELECT * FROM discs WHERE NAME=?''',(name,))
     disc = cur.fetchall()[0]
-    out_message += f'''Name: {disc[0]}\nManufacturer: {disc[1]}\nSpeed: {disc[2]}\nGlide: {disc[3]}\nTurn: {disc[4]}\nFade: {disc[5]}'''
+    out_message += f'''Name: {disc[2]}\nManufacturer: {disc[1]}\nSpeed: {disc[3]}\nGlide: {disc[4]}\nTurn: {disc[5]}\nFade: {disc[6]}'''
     out_message += "```"
     await message.channel.send(out_message)
 
