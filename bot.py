@@ -30,9 +30,10 @@ async def on_message(message):
 
     if message.content.startswith('.disc'):
         try:
-            discs_stripped = message.content[6:].replace(' ','').split(',')
+            discs_stripped = message.content[6:].split(',')
+            
             for disc in discs_stripped:    
-                await search_disc_by_name(disc,message)
+                await search_disc_by_name(disc.strip(),message)
         except:
             await message.channel.send("Search Failed")
     
