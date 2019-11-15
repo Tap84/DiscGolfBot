@@ -1,3 +1,3 @@
-# ProdigyBot
+# DiscGolfBot
 
-This is a bot developed to store information about disc golf discs made by prodigy disc such as their flight numbers
+This is a bot developed to store information about disc golf discs among other features
