@@ -38,7 +38,8 @@ async def on_message(message):
             await message.channel.send("Search Failed")
     
     if message.content.startswith('.adddisc') and message.author.id in authorized_users:
-        discinfo = message.content[8:].replace(' ','').split(',')
+        discinfo = message.content[8:].split(',')
+        discinfo = [info.strip() for info in discinfo]
         try:
             await add_disc(discinfo, message)
         except:
@@ -48,7 +49,7 @@ async def on_message(message):
                                             
 async def add_disc(discinfo, message):
     conn.execute(''' INSERT INTO discs(NAME,MANUFACTURER,SPEED,GLIDE,TURN,FADE)
-                        VALUES(?,?,?,?,?,?)''',    (discinfo[0].lower(),
+                        VALUES(?,?,?,?,?,?)''',    (discinfo[0].lower().strip(),
                                                     discinfo[1].lower(),
                                                     discinfo[2],
                                                     discinfo[3],
