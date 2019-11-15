@@ -1,8 +1,9 @@
 .vscode/settings.json
-prodigybot.pem
+bot.pem
 database.sqlite3
 key.txt
 ssh.txt
 alldiscs.csv
 datamigration.py
 temp_database.sqlite3
+basket.png
