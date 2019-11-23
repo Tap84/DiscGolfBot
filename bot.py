@@ -43,6 +43,7 @@ async def on_message(message):
         try:
             await add_disc(discinfo, message)
         except:
+            print(sys.exc_info()[0])
             await message.channel.send("Failed")
     elif message.content.startswith('.adddisc'):
         await message.channel.send("Unauthorized")                     
